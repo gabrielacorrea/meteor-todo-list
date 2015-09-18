@@ -18,17 +18,17 @@ if (Meteor.isClient) {
     });
 
     Template.body.events({
-        "submit .new-search": function (event) {
+        "submit .nova-oficina": function (event) {
             event.preventDefault();
 
-            var taskToAdd = event.target.localizacao.value;
+            var taskToAdd = event.target.nomeNovaOficina.value;
 
             Tasks.insert({
                 text: taskToAdd,
                 createdAt: new Date()
             });
 
-            event.target.localizacao.value = "";
+            event.target.nomeNovaOficina.value = "";
         },
         "click .toggle-checked": function () {
             Tasks.update(this._id, {
