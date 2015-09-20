@@ -30,6 +30,15 @@ if (Meteor.isClient) {
 
             event.target.nomeNovaOficina.value = "";
         },
+        "submit .consulta": function (event) {
+            event.preventDefault();
+
+            var nomeOficina = event.target.nomePesquisaOficina.value;
+            Tasks.update
+
+
+
+        },
         "click .toggle-checked": function () {
             Tasks.update(this._id, {
                 $set: {checked: !this.checked}

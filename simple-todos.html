@@ -1,21 +1,43 @@
 <head>
     <title>Oficinas</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
 <div class="container">
     <header>
-        <h1>Pesquisa de oficinas</h1>
+        <div class="row">
+            <div class="col l12">
+                <h1>Pesquisa de oficinas mecânicas</h1>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <form class="consulta">
+                <div class="input-field col l6">
+                    <input type="text" name="nomePesquisaOficina" id="nomePesquisaOficina" class="validate"/>
+                    <label for="nomePesquisaOficina" class="active">Nome do estabelecimento</label>
+                </div>
+
+                <div class="input-field col l6">
+                    <input type="checkbox" name="aberto" id="aberto">
+                    <label for="aberto">Aberto aos sábados</label>
+                </div>
+
+                <div class="row">
+                    <div class="col l12">
+                        <i class="material-icons">attach_money</i>
+                        <button type="submit" name="pesquisar">Pesquisar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
 
         <label class="show-promotions">
             <input type="checkbox" checked="{{showPromotions}}"/>
             Exibir promoções
         </label>
-
-        <form class="consulta">
-            Pesquisar oficina <input type="text" name="nomePesquisaOficina"/>
-            <button type="submit" name="pesquisar">Pesquisar</button>
-        </form>
 
         <form class="nova-oficina">
             Cadastrar uma oficina <input type="text" name="nomeNovaOficina"/>
@@ -28,13 +50,15 @@
         {{> oneTask}}
         {{/each}}
     </ul>
+    <div class="card-panel teal lighten-2">This is a card panel with a teal lighten-2 class</div>
+
 </div>
 </body>
 
 <template name="oneTask">
     <li>
         <button class="delete">&times;</button>
-        <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+        <input type="checkbox" checked="{{checked}}" class="toggle-checked"/>
         {{text}}
     </li>
 </template>
