@@ -1,15 +1,23 @@
 Tasks = new Mongo.Collection("tasks");
 
+var consultaPorNome = function() {
+    var nomeOficina = event.target.nomePesquisaOficina;
+    console.log("B pesquisa: " + event.target.nomePesquisaOficina);
+    return Tasks.find({text: "nova"});
+}
+
 if (Meteor.isClient) {
     Template.body.helpers({
         tasks: function () {
-            if (Session.get("showPromotions")) {
-                // If hide completed is checked, filter tasks
-                return Tasks.find({checked: {$ne: true}}, {sort: {createdAt: -1}});
+            console.log("A pesquisa: " + event.target.nomePesquisaOficina);
+            if (typeof event.target.nomePesquisaOficina != 'undefined') {
+                return consultaPorNome();
             } else {
-                // Otherwise, return all of the tasks
                 return Tasks.find({}, {sort: {createdAt: -1}});
             }
+
+
+
         },
         showPromotions: function () {
             return Session.get("showPromotions");
@@ -32,12 +40,9 @@ if (Meteor.isClient) {
         },
         "submit .consulta": function (event) {
             event.preventDefault();
+            console.log("C rodou");
 
-            var nomeOficina = event.target.nomePesquisaOficina.value;
-            Tasks.update
-
-
-
+            consultaPorNome();
         },
         "click .toggle-checked": function () {
             Tasks.update(this._id, {
