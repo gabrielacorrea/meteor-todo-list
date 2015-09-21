@@ -14,34 +14,52 @@
 
         <form class="consulta">
             <div class="row">
-                <div class="input-field col l4">
-                    <input type="text" name="nomePesquisaOficina" id="nomePesquisaOficina" class="validate"/>
-                    <label for="nomePesquisaOficina" class="active">Nome do estabelecimento</label>
-                </div>
-
                 <div class="col l4">
-                    <label>Faixa de preço</label>
-                    <table border="1">
-                        <tbody>
-                        <tr>
-                            <td><i class="material-icons greenDolar prefix" id="precoL">attach_money</i></td>
-                            <td>
-                                <i class="material-icons greenDolar prefix" id="precoM1">attach_money</i>
-                                <i class="material-icons greenDolar prefix" id="precoM2">attach_money</i>
-                            </td>
-                            <td>
-                                <i class="material-icons greenDolar prefix" id="precoH1">attach_money</i>
-                                <i class="material-icons greenDolar prefix" id="precoH2">attach_money</i>
-                                <i class="material-icons greenDolar prefix" id="precoH3">attach_money</i>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                    <label for="nomePesquisaOficina">Nome do estabelecimento</label>
+                    <input type="text" name="nomePesquisaOficina" id="nomePesquisaOficina" class="validate"/>
                 </div>
 
                 <div class="input-field col l4">
                     <input type="checkbox" name="aberto" id="aberto">
                     <label for="aberto">Aberto aos sábados</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col l6">
+                    <label>Faixa de preço</label>
+                    <table border="1">
+                        <tbody>
+                        <tr>
+                            <td><i class="material-icons green-text prefix" id="precoL">attach_money</i></td>
+                            <td>
+                                <i class="material-icons green-text prefix" id="precoM1">attach_money attach_money</i>
+                            </td>
+                            <td>
+                                <i class="material-icons green-text prefix" id="precoH1">attach_money attach_money
+                                    attach_money</i>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col l6">
+                    <label>Avaliação</label>
+                    <table border="1">
+                        <tbody>
+                        <tr>
+                            <td><i class="material-icons yellow-text text-accent-4 prefix" id="avaliacaoL">star_rate</i>
+                            </td>
+                            <td>
+                                <i class="material-icons yellow-text text-accent-4 prefix"
+                                   id="avaliacaoM1">star_rate star_rate</i>
+                            </td>
+                            <td>
+                                <i class="material-icons yellow-text text-accent-4 prefix"
+                                   id="avaliacaoH1">star_rate star_rate star_rate</i>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div class="row">

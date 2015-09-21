@@ -6361,10 +6361,6 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
       width: 80%;
       width: calc(100% - 3rem); } }
 
-.material-icons.greenDolar {
-    color: #00C853;
-}
-
 .input-field input[type=search] {
   display: block;
   line-height: inherit;
