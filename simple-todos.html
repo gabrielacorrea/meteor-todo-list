@@ -12,27 +12,44 @@
             </div>
         </div>
 
-        <div class="row">
-
-            <form class="consulta">
-                <div class="input-field col l6">
+        <form class="consulta">
+            <div class="row">
+                <div class="input-field col l4">
                     <input type="text" name="nomePesquisaOficina" id="nomePesquisaOficina" class="validate"/>
                     <label for="nomePesquisaOficina" class="active">Nome do estabelecimento</label>
                 </div>
 
-                <div class="input-field col l6">
+                <div class="col l4">
+                    <label>Faixa de preço</label>
+                    <table border="1">
+                        <tbody>
+                        <tr>
+                            <td><i class="material-icons green" id="precoL">attach_money</i></td>
+                            <td>
+                                <i class="material-icons prefix" id="precoM1">attach_money</i>
+                                <i class="material-icons prefix" id="precoM2">attach_money</i>
+                            </td>
+                            <td>
+                                <i class="material-icons prefix" id="precoH1">attach_money</i>
+                                <i class="material-icons prefix" id="precoH2">attach_money</i>
+                                <i class="material-icons prefix" id="precoH3">attach_money</i>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="input-field col l4">
                     <input type="checkbox" name="aberto" id="aberto">
                     <label for="aberto">Aberto aos sábados</label>
                 </div>
-
-                <div class="row">
-                    <div class="col l12">
-                        <i class="material-icons">attach_money</i>
-                        <button type="submit" name="pesquisar">Pesquisar</button>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col l12">
+                    <button type="submit" name="pesquisar">Pesquisar</button>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
 
         <label class="show-promotions">
             <input type="checkbox" checked="{{showPromotions}}"/>
