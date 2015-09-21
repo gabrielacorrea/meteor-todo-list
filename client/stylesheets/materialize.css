@@ -6361,6 +6361,10 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
       width: 80%;
       width: calc(100% - 3rem); } }
 
+.material-icons.greenDolar {
+    color: #00C853;
+}
+
 .input-field input[type=search] {
   display: block;
   line-height: inherit;
@@ -6374,9 +6378,7 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
     .input-field input[type=search]:focus + label i, .input-field input[type=search]:focus ~ .mdi-navigation-close, .input-field input[type=search]:focus ~ .material-icons {
       color: #444;
     }
-.material-icons.green {
-    color: #00C853;
-}
+
   .input-field input[type=search] + label {
     left: 1rem; }
   .input-field input[type=search] ~ .mdi-navigation-close, .input-field input[type=search] ~ .material-icons {
