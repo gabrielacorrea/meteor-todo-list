@@ -1,27 +1,16 @@
+Router.route('/pesquisaOficinas');
+
 Tasks = new Mongo.Collection("tasks");
 
-var consultaPorNome = function() {
-    var nomeOficina = event.target.nomePesquisaOficina;
-    console.log("B pesquisa: " + event.target.nomePesquisaOficina);
-    return Tasks.find({text: "nova"});
+var consultaPorNome = function () {
+    var nomeOficina = event.target.nomePesquisaOficina.value;
+    return Tasks.find({text: nomeOficina}).fetch();
 }
 
 if (Meteor.isClient) {
     Template.body.helpers({
         tasks: function () {
-            console.log("A pesquisa: " + event.target.nomePesquisaOficina);
-            if (typeof event.target.nomePesquisaOficina != 'undefined') {
-                return consultaPorNome();
-            } else {
-                return Tasks.find({}, {sort: {createdAt: -1}});
-            }
-
-
-
-        },
-        showPromotions: function () {
-            return Session.get("showPromotions");
-
+            return Tasks.find({}, {sort: {createdAt: -1}});
         }
     });
 
@@ -38,12 +27,18 @@ if (Meteor.isClient) {
 
             event.target.nomeNovaOficina.value = "";
         },
+
         "submit .consulta": function (event) {
             event.preventDefault();
-            console.log("C rodou");
 
-            consultaPorNome();
+            var txtNomeOficina = event.target.nomePesquisaOficina.value;
+            var oo = consultaPorNome();
+
+            console.log(oo);
+            Session.set('pesquisaOficina', oo);
+            var x = Session.get('pesquisaOficina');
         },
+
         "click .toggle-checked": function () {
             Tasks.update(this._id, {
                 $set: {checked: !this.checked}
