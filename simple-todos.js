@@ -1,5 +1,3 @@
-Router.route('/pesquisaOficinas');
-
 Tasks = new Mongo.Collection("tasks");
 
 if (Meteor.isClient) {
