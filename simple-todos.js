@@ -2,11 +2,6 @@ Router.route('/pesquisaOficinas');
 
 Tasks = new Mongo.Collection("tasks");
 
-var consultaPorNome = function () {
-    var nomeOficina = event.target.nomePesquisaOficina.value;
-    return Tasks.find({text: nomeOficina}).fetch();
-}
-
 if (Meteor.isClient) {
     Template.body.helpers({
         tasks: function () {
@@ -32,11 +27,11 @@ if (Meteor.isClient) {
             event.preventDefault();
 
             var txtNomeOficina = event.target.nomePesquisaOficina.value;
-            var oo = consultaPorNome();
+            var oficinas = consultaPorNome();
 
-            console.log(oo);
-            Session.set('pesquisaOficina', oo);
-            var x = Session.get('pesquisaOficina');
+
+            Session.set('pesquisaOficina', oficinas[0].text);
+            console.log("retorno session: " + Session.get('pesquisaOficina'));
         },
 
         "click .toggle-checked": function () {
@@ -44,11 +39,18 @@ if (Meteor.isClient) {
                 $set: {checked: !this.checked}
             });
         },
+
         "click .delete": function () {
             Tasks.remove(this._id);
         },
+
         "change .show-promotions input": function (event) {
             Session.set("showPromotions", event.target.checked);
         }
     });
+}
+
+var consultaPorNome = function () {
+    var nomeOficina = event.target.nomePesquisaOficina.value;
+    return Tasks.find({text: nomeOficina}).fetch();
 }
