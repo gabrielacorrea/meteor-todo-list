@@ -1,0 +1,66 @@
+<template name="pag1">
+<form class="consulta">
+    <div class="row">
+        <div class="col l4">
+            <label for="nomePesquisaOficina">Nome do estabelecimento</label>
+            <input type="text" name="nomePesquisaOficina" id="nomePesquisaOficina" class="validate"/>
+        </div>
+
+        <div class="input-field col l4">
+            <input type="checkbox" name="aberto" id="aberto">
+            <label for="aberto">Aberto aos sábados</label>
+        </div>
+        <a href="{{pathFor 'home'}}">Home</a>
+       <!-- <a href="home.html">Home</a> -->
+
+    </div>
+    <div class="row">
+        <div class="col l4">
+            <label>Faixa de preço</label>
+            <table>
+                <tbody>
+                <tr>
+                    <td><i class="material-icons green-text prefix" id="precoL">attach_money</i></td>
+                    <td>
+                        <i class="material-icons green-text prefix" id="precoM1">attach_money attach_money</i>
+                    </td>
+                    <td>
+                        <i class="material-icons green-text prefix" id="precoH1">attach_money attach_money
+                            attach_money</i>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col l8">
+            <label>Avaliação</label>
+            <table>
+                <tbody>
+                <tr>
+                    <td><i class="material-icons yellow-text text-accent-4 prefix" id="avaliacaoL">star_rate</i>
+                    </td>
+                    <td>
+                        <i class="material-icons yellow-text text-accent-4 prefix"
+                           id="avaliacaoM1">star_rate star_rate</i>
+                    </td>
+                    <td>
+                        <i class="material-icons yellow-text text-accent-4 text-accent-4 prefix"
+                           id="avaliacaoH1">star_rate star_rate star_rate</i>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col l12">
+            <button type="submit" name="pesquisar">Pesquisar</button>
+        </div>
+    </div>
+</form>
+
+<form class="nova-oficina">
+    Cadastrar uma oficina <input type="text" name="nomeNovaOficina"/>
+    <button type="submit" name="cadastrar">Cadastrar</button>
+</form>
+</template>

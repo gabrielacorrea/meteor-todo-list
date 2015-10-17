@@ -8,6 +8,8 @@ if (Meteor.isClient) {
     });
 
     Template.body.events({
+
+
         "submit .nova-oficina": function (event) {
             event.preventDefault();
 
