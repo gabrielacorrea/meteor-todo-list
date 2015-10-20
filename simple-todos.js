@@ -1,5 +1,3 @@
-Tasks = new Mongo.Collection("tasks");
-
 if (Meteor.isClient) {
     Template.body.helpers({
         tasks: function () {
@@ -8,8 +6,6 @@ if (Meteor.isClient) {
     });
 
     Template.body.events({
-
-
         "submit .nova-oficina": function (event) {
             event.preventDefault();
 
