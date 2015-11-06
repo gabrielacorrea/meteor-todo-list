@@ -15,15 +15,20 @@
 
     <div>
         {{> formPesquisa}}
-        {{> resultPesquisa}}
+
+        <ul>
+            {{#each oficinasList}}
+                {{> oficina}}
+            {{/each}}
+        </ul>
     </div>
+
 </div>
 </body>
 
-<template name="oneTask">
+<template name="oficina">
     <li>
         <button class="delete">&times;</button>
-        <input type="checkbox" checked="{{checked}}" class="toggle-checked"/>
         {{text}}
     </li>
 </template>

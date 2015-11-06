@@ -1,7 +1,22 @@
+Tasks = new Mongo.Collection("tasks");
+
 if (Meteor.isClient) {
-    Template.body.helpers({
-        tasks: function () {
+
+    Session.setDefault("isSearching", false);
+
+    var isSearching = function () {
+        if (!Session.get("isSearching")) {
             return Tasks.find({}, {sort: {createdAt: -1}});
+        } else {
+            var nomePesquisaOficina = event.target.nomePesquisaOficina.value;
+            return Tasks.find({text: nomePesquisaOficina}).fetch()
+        }
+        return Session.get("isSearching");
+    };
+
+    Template.body.helpers({
+        oficinasList: function () {
+            return isSearching();
         }
     });
 
@@ -21,26 +36,11 @@ if (Meteor.isClient) {
 
         "submit .consulta": function (event) {
             event.preventDefault();
-
-            var oficinas = consultaPorNome();
-
-            console.log("oficinas: " + oficinas.text);
-            Session.set('tasks', oficinas[0].text);
-        },
-
-        "click .toggle-checked": function () {
-            Tasks.update(this._id, {
-                $set: {checked: !this.checked}
-            });
+            Session.set("isSearching", true);
         },
 
         "click .delete": function () {
             Tasks.remove(this._id);
         }
     });
-}
-
-var consultaPorNome = function () {
-    var nomeOficina = event.target.nomePesquisaOficina.value;
-    return Tasks.find({text: nomeOficina}).fetch();
 }
