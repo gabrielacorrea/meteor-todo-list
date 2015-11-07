@@ -21,6 +21,17 @@ if (Meteor.isClient) {
     });
 
     Template.body.events({
+        "submit .consulta": function (event) {
+            event.preventDefault();
+            Session.set("isSearching", true);
+        },
+
+        "click .delete": function () {
+            Tasks.remove(this._id);
+        }
+    });
+
+    Template.formPesquisa.events ({
         "submit .nova-oficina": function (event) {
             event.preventDefault();
 
@@ -33,14 +44,5 @@ if (Meteor.isClient) {
 
             event.target.nomeNovaOficina.value = "";
         },
-
-        "submit .consulta": function (event) {
-            event.preventDefault();
-            Session.set("isSearching", true);
-        },
-
-        "click .delete": function () {
-            Tasks.remove(this._id);
-        }
     });
 }
