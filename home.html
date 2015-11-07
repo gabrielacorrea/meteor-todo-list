@@ -17,8 +17,8 @@
         {{> formPesquisa}}
 
         <ul>
-            {{#each oficinasList}}
-                {{> oficina}}
+            {{#each oficinasListAsVerda}}
+                {{> oficinaAsVerda}}
             {{/each}}
         </ul>
     </div>
@@ -26,9 +26,9 @@
 </div>
 </body>
 
-<template name="oficina">
+<template name="oficinaAsVerda">
     <li>
-        <button class="delete">&times;</button>
-        {{text}}
+        <div>{{nome}}</div>
+        <div>{{endereco}}</div>
     </li>
 </template>

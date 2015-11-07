@@ -1,22 +1,23 @@
 Tasks = new Mongo.Collection("tasks");
+Oficinas = new Mongo.Collection("oficinas");
 
 if (Meteor.isClient) {
 
     Session.setDefault("isSearching", false);
 
-    var isSearching = function () {
+    var isSearchingAsVerda = function () {
         if (!Session.get("isSearching")) {
-            return Tasks.find({}, {sort: {createdAt: -1}});
+            return Oficinas.find({}, {sort: {createdAt: -1}});
         } else {
             var nomePesquisaOficina = event.target.nomePesquisaOficina.value;
-            return Tasks.find({text: nomePesquisaOficina}).fetch()
+            return Oficinas.find({nome: nomePesquisaOficina}).fetch()
         }
         return Session.get("isSearching");
     };
 
     Template.body.helpers({
-        oficinasList: function () {
-            return isSearching();
+        oficinasListAsVerda: function () {
+            return isSearchingAsVerda();
         }
     });
 
@@ -24,10 +25,6 @@ if (Meteor.isClient) {
         "submit .consulta": function (event) {
             event.preventDefault();
             Session.set("isSearching", true);
-        },
-
-        "click .delete": function () {
-            Tasks.remove(this._id);
         }
     });
 
@@ -35,14 +32,16 @@ if (Meteor.isClient) {
         "submit .nova-oficina": function (event) {
             event.preventDefault();
 
-            var taskToAdd = event.target.nomeNovaOficina.value;
+            var nomeNovaOficina = event.target.nomeNovaOficina.value;
+            var enderecoNovaOficina = event.target.enderecoNovaOficina.value;
 
-            Tasks.insert({
-                text: taskToAdd,
-                createdAt: new Date()
+            Oficinas.insert({
+                nome: nomeNovaOficina,
+                endereco: enderecoNovaOficina
             });
 
             event.target.nomeNovaOficina.value = "";
-        },
+            event.target.enderecoNovaOficina.value = "";
+        }
     });
 }

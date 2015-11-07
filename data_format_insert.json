@@ -1,0 +1,12 @@
+db.oficinas.insert(
+{"cnpj": 98765432,
+"nome": "Reparação do Zé",
+"endereco": "Avenida Ipiranga, 12",
+"telefone":[
+{"numero_telefone": 33111122}
+],
+"formas_pagamento":
+[
+{"forma_pagamento": "Visa"}
+]
+});
